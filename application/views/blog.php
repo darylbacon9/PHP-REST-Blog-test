@@ -16,7 +16,7 @@
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="col-md-12">
-				<?php var_dump($blogPosts); ?>
+				<?php //var_dump($blogPosts); ?>
 				<div class="blogPost">
 					<?php
 					foreach ($blogPosts as $blogPost) {

@@ -7,7 +7,7 @@
 		}
 
 		function posts($slug = NULL) {
-			$response = json_decode(file_get_contents('http://blog.beyondlocal.dev/posts'));
+			$response = file_get_contents('http://blog.beyondlocal.dev/posts');
 			if ($slug == NULL) {
 				$data['title'] = "Blog Posts";
 				$data['blogPosts'] = json_decode($response);
