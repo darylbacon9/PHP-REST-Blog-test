@@ -1,0 +1,35 @@
+//* { font-family:"VAG Rundschrift Regular", sans-serif; font-size-adjust:0.516; font-weight:normal; font-style:normal; }
+
+
+// Colours
+@colPink: #ff69b4; 
+@colBlue: #009FE3;
+@colYellow: #FDD502;
+// Import Fonts
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:100,700,400);
+// main CSS
+*::selection {
+	background: @colPink;
+}
+html {
+	font-size:12px;
+}
+body {
+	font-size:inherit;
+	color:#56514e;
+	font-family: 'Open Sans', arial, sans-serif;
+	//height:3000px;
+}
+.heroImage {
+	background: url('http://placehold.it/1920x800') no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	width: 100%;
+	height: 300px;
+	display: table;
+}
+.blogPost {
+	text-align: center;
+}
