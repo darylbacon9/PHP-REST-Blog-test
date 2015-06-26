@@ -79,7 +79,7 @@
 						"status" => $this->input->post('status'),
 						"allowComments" => $this->input->post('allowComments'),
 						"body" => $this->input->post('body'),
-						"token" => $this->session->logged_in('token'),
+						"token" => $this->session->logged_in['token'],
 						"uuidUser" => $this->session->logged_in['uuidUser']
 					);
 					// var_dump($post_data);
