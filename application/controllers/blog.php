@@ -33,7 +33,7 @@
 					$response = file_get_contents('http://blog.beyondlocal.dev/post?slug='.$slug, false, $context);
 
 					$data['post'] = json_decode($response);
-					$data['title'] = $data['post']->title;
+					$data['title'] = $data['post'][0]->title;
 
 					// Load the Views
 					$this->load->view('header', $data);

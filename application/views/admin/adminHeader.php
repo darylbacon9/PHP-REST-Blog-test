@@ -51,6 +51,9 @@
 							<li>
 								<a href="/admin/posts/edit/">Add Post</a>
 							</li>
+							<li>
+								<a href="/admin/categories/">Edit Categories</a>
+							</li>
 						</ul>
 					</li>
 					<!--
