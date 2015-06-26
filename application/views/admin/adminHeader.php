@@ -39,12 +39,21 @@
 					<li>
 						<a href="/"><i class="fa fa-fw fa-thumbs-up"></i> View The Site</a>
 					</li>
-					<!-- <li>
+					<li>
 						<a href="/admin/dashboard/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
 					</li>
 					<li>
-						<a href="/admin/dashboard/enquiries"><i class="fa fa-fw fa-envelope"></i> Enquiries</a>
+						<a href="#" data-toggle="collapse" data-target="#contentNav"><i class="fa fa-pencil-square-o"></i> Blog Posts <i class="fa fa-fw fa-caret-down"></i></a>
+						<ul id="contentNav" class="collapse">
+							<li>
+								<a href="/admin/posts/">View Posts</a>
+							</li>
+							<li>
+								<a href="/admin/posts/edit/">Add Post</a>
+							</li>
+						</ul>
 					</li>
+					<!--
 					<li>
 						<a href="/admin/team/"><i class="fa fa-fw fa-users"></i> Team Members</a>
 					</li>
