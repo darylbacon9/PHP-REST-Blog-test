@@ -14,7 +14,6 @@
 				$this->session->set_flashdata('msg', 'The page you are trying to access does not exist.');
 				redirect('/', 'refresh');
 			} else {
-<<<<<<< HEAD
 				if ($slug == NULL) {
 					$response = file_get_contents($url);
 					$data['title'] = "Blog Posts";
@@ -41,23 +40,6 @@
 					$this->load->view('article', $data);
 					$this->load->view('footer', $data);
 				}
-=======
-				$otions = array('http' =>
-					array(
-						'method'  => 'GET'
-					)
-				);
-				$context  = stream_context_create($otions);
-				$response = file_get_contents('http://blog.beyondlocal.dev/post?slug='.$slug, false, $context);
-
-				$data['post'] = json_decode($response);
-				$data['title'] = $data['post'][0]->title;
-
-				// Load the Views
-				$this->load->view('header', $data);
-				$this->load->view('article', $data);
-				$this->load->view('footer', $data);
->>>>>>> origin/master
 			}
 		}
 
