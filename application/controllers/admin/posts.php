@@ -14,7 +14,7 @@
 				$response = file_get_contents($url);
 				$data['title'] = "Blog Posts";
 				$data['blogPost'] = json_decode($response);
-				var_dump($data['blogPost']);exit;
+				// var_dump($data['blogPost']);exit;
 
 				// Load the views
 				$this->load->view('/admin/adminHeader', $data);
