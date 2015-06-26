@@ -69,14 +69,14 @@
 			if ($this->session->logged_in) {
 				$sessionData = $this->session->logged_in;
 				if ($uuid == NULL) { // If there is no uuid then send add data to the api
-					var_dump($this->input->post()); exit;
+					// var_dump($this->input->post()); exit;
 					// var_dump($sessionData);
 					$url = "http://blog.beyondlocal.dev/savePost"; 
 					$post_data = array( 
 						"slug" => $this->input->post('slug'), 
 						"title" => $this->input->post('title'),
-						"category" => $this->input->post('category'),
-						"status" => $this->input->post('status'),
+						"uuidCategory" => $this->input->post('category'),
+						"uuidStatus" => $this->input->post('status'),
 						"allowComments" => $this->input->post('allowComments'),
 						"body" => $this->input->post('body'),
 						"token" => $this->session->logged_in['token'],
@@ -96,6 +96,7 @@
 					// $httpResponse = $this->get_http_response_code($url);
 					$result = file_get_contents($url, false, $context);
 					$result = json_decode($result);
+					// var_dump($result);exit;
 					if ($result->status == 'Success') {
 						$this->session->set_flashdata('success', 1);
 						$this->session->set_flashdata('msg', 'Post Added!');
