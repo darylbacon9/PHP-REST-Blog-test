@@ -7,7 +7,23 @@
 		}
 
 		function index() {
-			// show all posts
+			if ($this->session->logged_in) {
+				$sessionData = $this->session->logged_in; // Load session data into a variable
+				$data['username'] = $sessionData['username'];
+				$url = 'http://blog.beyondlocal.dev/posts';
+				$response = file_get_contents($url);
+				$data['title'] = "Blog Posts";
+				$data['blogPost'] = json_decode($response);
+				var_dump($data['blogPost']);exit;
+
+				// Load the views
+				$this->load->view('/admin/adminHeader', $data);
+				$this->load->view('/admin/viewPosts', $data);
+				$this->load->view('/admin/adminFooter', $data);
+			} else {
+				// If no session, redirect to login page
+				redirect('admin/login', 'refresh');
+			}
 		}
 
 		function edit($uuid = NULL) {
@@ -60,6 +76,7 @@
 						"slug" => $this->input->post('slug'), 
 						"title" => $this->input->post('title'),
 						"category" => $this->input->post('category'),
+						"status" => $this->input->post('status'),
 						"allowComments" => $this->input->post('allowComments'),
 						"body" => $this->input->post('body'),
 						"token" => $this->session->logged_in('token'),

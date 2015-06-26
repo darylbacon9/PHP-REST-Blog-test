@@ -11,23 +11,22 @@
 	}
 ?>
 
-<!-- <div class="container"> -->
 	<div class="row">
 		<?php echo form_open($formAction, $formAttributes); ?>
 			<div class="form-group">
-				<label for="slug" class="col-sm-3">Slug</label>
+				<label for="slug" class="col-sm-3 control-label">Slug</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control" name="slug" id="slug" />
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="title" class="col-sm-3">Title</label>
+				<label for="title" class="col-sm-3 control-label">Title</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control" name="title" id="title" />
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="category" class="col-sm-3">Category</label>
+				<label for="category" class="col-sm-3 control-label">Category</label>
 				<div class="col-sm-9">
 					<select name="category" id="category" class="form-control">
 						<option selected disabled>-- Please Select --</option>
@@ -42,7 +41,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="status" class="col-sm-3">Status</label>
+				<label for="status" class="col-sm-3 control-label">Status</label>
 				<div class="col-sm-9">
 					<select name="status" id="status" class="form-control">
 						<option selected disabled>-- Please Select --</option>
@@ -57,13 +56,13 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="allowComments" class="col-sm-3">Allow Comments?</label>
+				<label for="allowComments" class="col-sm-3 control-label">Allow Comments?</label>
 				<div class="col-sm-9">
 					<input type="checkbox" name="allowComments" id="allowComments" value="1">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3" for="body">Body</label>
+				<label class="col-sm-3 control-label" for="body">Body</label>
 				<div class="col-sm-9">
 					<textarea rows="6" class="form-control" name="body" id="body"></textarea>
 				</div>
@@ -76,4 +75,3 @@
 			</div>		
 		</form>
 	</div>
-<!-- </div> -->
