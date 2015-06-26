@@ -17,7 +17,7 @@
 		}
 
 		function verifyLogin() {
-			$url = "http://blog.beyondlocal.dev/login";
+			$url = "http://blog.beyondlocal.dev/login"; 
 			$post_data = array( 
 				"username" => $this->input->post('username'), 
 				"password" => $this->input->post('password')
@@ -34,33 +34,28 @@
 			// get response of url
 			$httpResponse = $this->get_http_response_code($url);
 
-			if($httpResponse = "200"){
+			if($httpResponse != "200"){
+				$this->session->set_flashdata('success', 0);
+				$this->session->set_flashdata('msg', 'The page you are trying to access does not exist.');
+				redirect('admin/login', 'refresh');
+			}else{
 				$result = file_get_contents($url, false, $context);
 				$result = json_decode($result);
-				if ($result->token) {
-					if(strlen($result->token) == 36) { // If the output has the token then proceed to login
-						//Go to private area
-						$this->session->set_userdata('logged_in', array('token' => $result->token, 'username' => $this->input->post('username')));
-						redirect('admin/dashboard', 'refresh');
-					} else { // If no token exists then redirect to the login page
-						$data['formAttributes'] = array(
-							'class' => 'form-horizontal'
-						);
-						$data['title'] = 'Login';
-						$this->load->view('admin/login', $data);
-					}
-				} elseif ($result == null || $result == '') {
-					$data['loginInvalid'] = true;
+				if(strlen($result->token) == 36) { // If the output has the token then proceed to login
+					//Go to private area
+					$this->session->set_userdata('logged_in', array(
+						'token' => $result->token, 
+						'uuidUser' => $result->uuidUser, 
+						'username' => $this->input->post('username')
+					));
+					redirect('admin/dashboard', 'refresh');
+				} else { // If no token exists then redirect to the login page
 					$data['formAttributes'] = array(
 						'class' => 'form-horizontal'
 					);
 					$data['title'] = 'Login';
 					$this->load->view('admin/login', $data);
 				}
-			} else {
-				$this->session->set_flashdata('success', 0);
-				$this->session->set_flashdata('msg', 'The page you are trying to access does not exist.');
-				redirect('admin/login', 'refresh');
 			}
 
 		}

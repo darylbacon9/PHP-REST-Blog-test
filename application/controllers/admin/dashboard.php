@@ -8,7 +8,7 @@
 
 		function index() {
 			if($this->session->userdata('logged_in')) {
-				$session_data = $this->session->userdata('logged_in');
+				$session_data = $this->session->logged_in;
 				$data['title'] = 'Dashboard';
 				$data['username'] = $session_data['username'];
 				$this->load->view('admin/adminHeader', $data);
@@ -45,6 +45,7 @@
 			}else{
 				$result = file_get_contents($url, false, $context);
 				$result = json_decode($result);
+				// var_dump($result);
 				if($result->status == 'Success') { // If the output has the token then proceed to login
 					$this->session->unset_userdata('logged_in');
 					session_destroy();
