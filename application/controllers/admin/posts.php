@@ -14,7 +14,7 @@
 				$response = file_get_contents($url);
 				$data['title'] = "Blog Posts";
 				$data['blogPost'] = json_decode($response);
-				var_dump($data['blogPost']);exit;
+				// var_dump($data['blogPost']);exit;
 
 				// Load the views
 				$this->load->view('/admin/adminHeader', $data);
@@ -68,7 +68,7 @@
 			// Save blog post
 			if ($this->session->logged_in) {
 				$sessionData = $this->session->logged_in;
-				if ($uuid == NULL) { // If there is no uuid then send add data to the api					
+				if ($uuid == NULL) { // If there is no uuid then send add data to the api
 					// var_dump($sessionData);
 					$url = "http://blog.beyondlocal.dev/savePost"; 
 					$post_data = array( 
@@ -95,6 +95,7 @@
 					// $httpResponse = $this->get_http_response_code($url);
 					$result = file_get_contents($url, false, $context);
 					$result = json_decode($result);
+					// var_dump($result);exit;
 					if ($result->status == 'Success') {
 						$this->session->set_flashdata('success', 1);
 						$this->session->set_flashdata('msg', 'Post Added!');

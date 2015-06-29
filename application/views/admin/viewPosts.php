@@ -11,9 +11,9 @@
 		foreach ($blogPost as $post) {
 		?>
 		<tr>
-			<td><?php echo $post->$title; ?></td>
-			<td><?php echo $post->category_title; ?></td>
-			<td><?php echo $post->status_title; ?></td>
+			<td><?php echo $post->title; ?></td>
+			<td><?php echo $post->category; ?></td>
+			<td><?php echo $post->status; ?></td>
 		</tr>
 		<?php
 		}

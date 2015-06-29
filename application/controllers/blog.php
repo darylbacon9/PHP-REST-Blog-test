@@ -9,10 +9,11 @@
 		function posts($slug = NULL) {
 			$url = 'http://blog.beyondlocal.dev/posts';
 			$httpResponse = $this->get_http_response_code($url);
+			// var_dump($httpResponse);exit;
 			if ($httpResponse != '200') {
 				$this->session->set_flashdata('success', 0);
 				$this->session->set_flashdata('msg', 'The page you are trying to access does not exist.');
-				redirect('/', 'refresh');
+				// redirect('/', 'refresh');
 			} else {
 				if ($slug == NULL) {
 					$response = file_get_contents($url);
