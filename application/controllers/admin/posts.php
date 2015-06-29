@@ -68,15 +68,14 @@
 			// Save blog post
 			if ($this->session->logged_in) {
 				$sessionData = $this->session->logged_in;
-				if ($uuid == NULL) { // If there is no uuid then send add data to the api
-					var_dump($this->input->post()); exit;
+				if ($uuid == NULL) { // If there is no uuid then send add data to the api					
 					// var_dump($sessionData);
 					$url = "http://blog.beyondlocal.dev/savePost"; 
 					$post_data = array( 
 						"slug" => $this->input->post('slug'), 
 						"title" => $this->input->post('title'),
-						"category" => $this->input->post('category'),
-						"status" => $this->input->post('status'),
+						"uuidCategory" => $this->input->post('category'),
+						"uuidStatus" => $this->input->post('status'),
 						"allowComments" => $this->input->post('allowComments'),
 						"body" => $this->input->post('body'),
 						"token" => $this->session->logged_in['token'],
