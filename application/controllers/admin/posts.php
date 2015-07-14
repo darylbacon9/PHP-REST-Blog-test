@@ -14,7 +14,6 @@
 				$response = file_get_contents($url);
 				$data['title'] = "Blog Posts";
 				$data['blogPost'] = json_decode($response);
-				// var_dump($data['blogPost']);exit;
 
 				// Load the views
 				$this->load->view('/admin/adminHeader', $data);
@@ -72,7 +71,7 @@
 					// var_dump($sessionData);
 					$url = "http://blog.beyondlocal.dev/savePost"; 
 					$post_data = array( 
-						"slug" => $this->input->post('slug'), 
+						"slug" => $this->input->post('slug'),
 						"title" => $this->input->post('title'),
 						"uuidCategory" => $this->input->post('category'),
 						"uuidStatus" => $this->input->post('status'),

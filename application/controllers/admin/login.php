@@ -38,7 +38,7 @@
 				$this->session->set_flashdata('success', 0);
 				$this->session->set_flashdata('msg', 'The page you are trying to access does not exist.');
 				redirect('admin/login', 'refresh');
-			}else{
+			} else {
 				$result = file_get_contents($url, false, $context);
 				$result = json_decode($result);
 				if(strlen($result->token) == 36) { // If the output has the token then proceed to login
